@@ -82,6 +82,10 @@ h3 {
     position: relative;
     cursor: pointer;
     animation: float 6s ease-in-out infinite;
+    --env-width: 90vmin;
+    --env-height: 60vmin;
+    width: var(--env-width);
+    height: var(--env-height);
 }
 
 @keyframes float {
@@ -92,7 +96,7 @@ h3 {
     }
 
     50% {
-        transform: translateY(-20px);
+        transform: translateY(-2vmin);
     }
 }
 
@@ -103,18 +107,18 @@ h3 {
 }
 
 .envelope-wrapper {
-    width: 300px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
     background-color: #e8ded1;
     position: relative;
-    border-radius: 5px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 1vmin;
+    box-shadow: 0 2vmin 6vmin rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     /* simplistic envelope for now */
-    border: 1px solid #d4c5b0;
+    border: 0.2vmin solid #d4c5b0;
     transition: transform 0.3s ease;
 }
 
@@ -132,9 +136,9 @@ h3 {
     position: absolute;
     top: 0;
     left: 0;
-    border-left: 150px solid transparent;
-    border-right: 150px solid transparent;
-    border-top: 100px solid #f2ebe0;
+    border-left: calc(var(--env-width) / 2) solid transparent;
+    border-right: calc(var(--env-width) / 2) solid transparent;
+    border-top: calc(var(--env-height) / 2 + 2vmin) solid #f2ebe0;
     /* Flap */
     transform-origin: top;
     transition: transform 0.6s ease;
@@ -148,18 +152,18 @@ h3 {
 .seal {
     position: absolute;
     z-index: 3;
-    top: 40px;
+    top: 12vmin;
     background: var(--accent-color);
-    width: 40px;
-    height: 40px;
+    width: 12vmin;
+    height: 12vmin;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
     font-family: var(--font-heading);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    font-size: 0.8rem;
+    box-shadow: 0 0.5vmin 1.5vmin rgba(0, 0, 0, 0.2);
+    font-size: 2.5vmin;
     transition: opacity 0.4s ease;
 }
 
@@ -169,34 +173,37 @@ h3 {
 
 .card-inside {
     position: absolute;
-    width: 280px;
-    height: 180px;
+    width: 90%;
+    height: 90%;
     background: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
     font-family: var(--font-heading);
     color: var(--secondary-color);
-    letter-spacing: 2px;
+    letter-spacing: 0.5vmin;
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 4vmin;
     transition: transform 0.8s ease 0.4s;
-    top: 5px;
+    top: 5%;
     /* Sits inside */
     z-index: 1;
+    text-align: center;
+    padding: 2vmin;
+    box-shadow: 0 1vmin 3vmin rgba(0, 0, 0, 0.05);
 }
 
 .envelope-container.open .card-inside {
-    transform: translateY(-50px);
+    transform: translateY(-20vmin);
     z-index: 4;
     /* Pop out above the envelope front if needed, but for now just slide up */
 }
 
 .tap-hint {
-    margin-top: 2rem;
+    margin-top: 5vmin;
     text-align: center;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
+    font-size: 2.5vmin;
+    letter-spacing: 0.5vmin;
     text-transform: uppercase;
     color: #888;
     animation: bounce 2s infinite;
@@ -213,11 +220,11 @@ h3 {
     }
 
     40% {
-        transform: translateY(-5px);
+        transform: translateY(-1vmin);
     }
 
     60% {
-        transform: translateY(-3px);
+        transform: translateY(-0.5vmin);
     }
 }
 
