@@ -1,31 +1,31 @@
 document.addEventListener('DOMContentLoaded', () => {
     // --- Configuration ---
     // Update this date to the actual wedding date
-    const WEDDING_DATE = new Date('December 12, 2026 18:00:00').getTime();
-    
+    const WEDDING_DATE = new Date('March 29, 2026 13:00:00').getTime();
+
     // --- Elements ---
     const hero = document.getElementById('hero');
     const envelope = document.getElementById('envelope');
     const mainContent = document.getElementById('main-content');
-    
+
     // --- Envelope Interaction ---
     envelope.addEventListener('click', () => {
         // 1. Animate Envelope Opening
         envelope.classList.add('open');
-        
+
         // 2. Wait for open animation then fade out hero
         setTimeout(() => {
             hero.classList.add('fade-out');
-            
+
             // 3. Show Main Content
             mainContent.classList.remove('hidden');
             // Trigger reflow to ensure transition happens
-            void mainContent.offsetWidth; 
+            void mainContent.offsetWidth;
             mainContent.classList.add('visible');
-            
+
             // 4. Enable Scroll (if we disabled it)
             document.body.style.overflowY = 'auto';
-            
+
         }, 1200); // Wait 1.2s for envelope open + card slide
     });
 
@@ -77,9 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const dates = "20261212T130000Z/20261212T170000Z"; // UTC time (adjust as needed)
         const details = "Join%20us%20in%20celebrating%20our%20wedding%21";
         const location = "Lahore%2C%20Pakistan";
-        
+
         const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;
-        
+
         window.open(calendarUrl, '_blank');
     });
 
