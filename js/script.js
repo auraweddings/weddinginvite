@@ -8,6 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const envelope = document.getElementById('envelope');
     const mainContent = document.getElementById('main-content');
 
+    // --- Background Video Slow Down ---
+    const bgVideo = document.querySelector('.bg-video');
+    if (bgVideo) {
+        bgVideo.playbackRate = 0.5; // Slow down the video for a cinematic effect
+    }
+
     // --- Envelope Interaction ---
     envelope.addEventListener('click', () => {
         // 1. Animate Envelope Opening
@@ -19,11 +25,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 3. Show Main Content
             mainContent.classList.remove('hidden');
+            window.scrollTo(0, 0); // Ensure we start at the top
+
             // Trigger reflow to ensure transition happens
             void mainContent.offsetWidth;
             mainContent.classList.add('visible');
 
-            // 4. Enable Scroll (if we disabled it)
+            // 4. Enable Scroll
             document.body.style.overflowY = 'auto';
 
         }, 1200); // Wait 1.2s for envelope open + card slide

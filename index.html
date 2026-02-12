@@ -16,7 +16,7 @@
 <body>
 
     <!-- Hero / Envelope Interaction -->
-    <section id="hero">
+    <section id="hero" class="hero">
         <div class="hero-content">
             <div class="envelope-container" id="envelope">
                 <div class="envelope-wrapper">
@@ -31,6 +31,7 @@
                 </div>
                 <p class="tap-hint">Tap to Open</p>
             </div>
+            <p class="message">A celebration of love and new beginnings</p>
         </div>
         <div class="hero-bg"></div>
     </section>
@@ -39,13 +40,60 @@
     <main id="main-content" class="hidden">
 
         <!-- Couple Section -->
-        <section id="couple" class="reveal">
-            <div class="container">
-                <p class="sub-headline">With Joyful Hearts, We Invite You To The Wedding Of</p>
+        <section id="couple" class="video-section">
+            <div class="video-container">
+                <video autoplay muted loop playsinline class="bg-video">
+                    <source src="couple_video_background.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay"></div>
+                <div class="video-grain"></div>
+            </div>
+            <div class="container content-relative">
+                <p class="sub-headline fade-up delay-1">We Invite You To The Wedding Of</p>
                 <div class="couple-names">
-                    <h1 class="groom">Paul</h1>
-                    <span class="amp">&</span>
-                    <h1 class="bride">Fakiha</h1>
+                    <h1 class="groom fade-up delay-2">Paul</h1>
+                    <span class="amp fade-up delay-3">&</span>
+                    <h1 class="bride fade-up delay-4">Fakiha</h1>
+                </div>
+
+                <div class="divider fade-up delay-4"></div>
+
+                <p class="date fade-up delay-5">Sunday, March 29th, 2026</p>
+                <p class="time fade-up delay-5">@ 1:00 PM</p>
+            </div>
+            <div class="scroll-hint fade-up delay-6">
+                <p>Ceremony Details</p>
+                <a href="#countdown" class="scroll-arrow">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section id="countdown">
+            <div class="container">
+                <h2 class="fade-up delay-6">Counting Down the Days</h2>
+                <div id="timer" class="countdown fade-up delay-6">
+                    <div class="countdown-item">
+                        <span id="days" class="countdown-number">00</span>
+                        <label class="countdown-label">Days</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours" class="countdown-number">00</span>
+                        <label class="countdown-label">Hours</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes" class="countdown-number">00</span>
+                        <label class="countdown-label">Mins</label>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds" class="countdown-number">00</span>
+                        <label class="countdown-label">Secs</label>
+                    </div>
                 </div>
             </div>
         </section>
@@ -55,7 +103,7 @@
             <div class="container">
                 <div class="detail-card">
                     <h2>The Ceremony</h2>
-                    <p class="date">Sunday, March 29th, 2026</p> <!-- Placeholder Date -->
+                    <p class="date">Sunday, March 29th, 2026</p>
                     <p class="time">@ 1:00 PM</p>
                     <div class="divider"></div>
                     <h3>Venue</h3>
@@ -66,31 +114,6 @@
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                         referrerpolicy="no-referrer-when-downgrade"></iframe><br>
                     <a href="https://maps.app.goo.gl/t2QKUoxKWDjkFvev8" target="_blank" class="map-link">View Map</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Countdown Section -->
-        <section id="countdown" class="reveal">
-            <div class="container">
-                <h2>Counting Down the Days</h2>
-                <div id="timer" class="timer">
-                    <div class="time-unit">
-                        <span id="days">00</span>
-                        <label>Days</label>
-                    </div>
-                    <div class="time-unit">
-                        <span id="hours">00</span>
-                        <label>Hours</label>
-                    </div>
-                    <div class="time-unit">
-                        <span id="minutes">00</span>
-                        <label>Mins</label>
-                    </div>
-                    <div class="time-unit">
-                        <span id="seconds">00</span>
-                        <label>Secs</label>
-                    </div>
                 </div>
             </div>
         </section>
