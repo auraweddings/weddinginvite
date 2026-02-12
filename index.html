@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation | [Your Name] & Fakiha</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Hero / Envelope Interaction -->
+    <section id="hero">
+        <div class="hero-content">
+            <div class="envelope-container" id="envelope">
+                <div class="envelope-wrapper">
+                    <div class="envelope-front">
+                        <div class="seal">
+                            <span>WF</span> <!-- Initials -->
+                        </div>
+                    </div>
+                    <div class="card-inside">
+                        <p>You are invited</p>
+                    </div>
+                </div>
+                <p class="tap-hint">Tap to Open</p>
+            </div>
+        </div>
+        <div class="hero-bg"></div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content" class="hidden">
+        
+        <!-- Couple Section -->
+        <section id="couple" class="reveal">
+            <div class="container">
+                <p class="sub-headline">With Joyful Hearts, We Invite You To The Wedding Of</p>
+                <div class="couple-names">
+                    <h1 class="groom">[Your Name]</h1>
+                    <span class="amp">&</span>
+                    <h1 class="bride">Fakiha Akbar</h1>
+                </div>
+            </div>
+        </section>
+
+        <!-- Details Section -->
+        <section id="details" class="reveal">
+            <div class="container">
+                <div class="detail-card">
+                    <h2>The Ceremony</h2>
+                    <p class="date">Saturday, December 12th, 2026</p> <!-- Placeholder Date -->
+                    <p class="time">At 6:00 PM</p>
+                    <div class="divider"></div>
+                    <h3>Venue</h3>
+                    <p class="location-name">Grand Wedding Hall</p>
+                    <p class="location-address">Lahore, Pakistan</p> <!-- Placeholder City -->
+                    <a href="https://maps.google.com" target="_blank" class="map-link">View Map</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Countdown Section -->
+        <section id="countdown" class="reveal">
+            <div class="container">
+                <h2>Counting Down the Days</h2>
+                <div id="timer" class="timer">
+                    <div class="time-unit">
+                        <span id="days">00</span>
+                        <label>Days</label>
+                    </div>
+                    <div class="time-unit">
+                        <span id="hours">00</span>
+                        <label>Hours</label>
+                    </div>
+                    <div class="time-unit">
+                        <span id="minutes">00</span>
+                        <label>Mins</label>
+                    </div>
+                    <div class="time-unit">
+                        <span id="seconds">00</span>
+                        <label>Secs</label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Save the Date / Footer -->
+        <section id="rsvp" class="reveal">
+            <div class="container">
+                <p>We look forward to celebrating with you.</p>
+                <button id="save-date-btn" class="btn-primary">Save the Date</button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
