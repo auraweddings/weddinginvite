@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const envelope = document.getElementById('envelope');
     const mainContent = document.getElementById('main-content');
 
+    /*
     // --- Check if invite was already opened via Cookie ---
     const inviteOpened = document.cookie.split('; ').find(row => row.startsWith('inviteOpened='));
 
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflowY = 'auto';
         window.scrollTo(0, 0);
     }
+    */
 
     // --- Background Video Slow Down ---
     const bgVideo = document.querySelector('.bg-video');
@@ -45,10 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
             // 4. Enable Scroll
             document.body.style.overflowY = 'auto';
 
+            /*
             // 5. Remember for next time via Cookie (expires in 1 year)
             const expiryDate = new Date();
             expiryDate.setFullYear(expiryDate.getFullYear() + 1);
             document.cookie = `inviteOpened=true; expires=${expiryDate.toUTCString()}; path=/; SameSite=Lax`;
+            */
 
         }, 1200); // Wait 1.2s for envelope open + card slide
     });
