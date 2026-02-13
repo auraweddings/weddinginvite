@@ -100,7 +100,7 @@ h3 {
     /* More interesting background: Soft cream with subtle gold/green hints and texture */
     background:
         linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
-        url('../images/video_background.webp') center/cover no-repeat;
+        url('../images/video_background.webp?v=1.0') center/cover no-repeat;
     transition: opacity 1s ease-out, visibility 1s ease-out;
 }
 
@@ -398,7 +398,7 @@ section {
 
 /* Specific background for Ceremony Details */
 #details {
-    background-image: url('../images/white_floral_background.webp');
+    background-image: url('../images/white_floral_background.webp?v=1.0');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -408,7 +408,7 @@ section {
 
 /* Specific background for Virtual Attendance */
 #virtual-attendance {
-    background-image: url('../images/gold_floral_background.webp');
+    background-image: url('../images/gold_floral_background.webp?v=1.0');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -442,7 +442,7 @@ section {
 
 /* Timer */
 #countdown {
-    background: url('../images/green_floral_background.webp') center/cover no-repeat;
+    background: url('../images/green_floral_background.webp?v=1.0') center/cover no-repeat;
     position: relative;
     padding: 100px 20px;
 }
@@ -544,7 +544,7 @@ section {
 
 /* RSVP Section Styles */
 #rsvp {
-    background: url('../images/green_floral_background.webp') center/cover no-repeat;
+    background: url('../images/green_floral_background.webp?v=1.0') center/cover no-repeat;
     position: relative;
     padding: 120px 20px;
     text-align: center;
