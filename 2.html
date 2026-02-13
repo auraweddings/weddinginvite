@@ -131,6 +131,53 @@
                 border-radius: 0;
             }
         }
+
+        /* Floaty Orbs Style */
+        .orbs-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .orb {
+            position: absolute;
+            background: radial-gradient(circle, rgba(163, 126, 44, 0.4) 0%, rgba(163, 126, 44, 0) 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            opacity: 0;
+            filter: blur(2px);
+            animation: floatOrb 20s infinite ease-in-out;
+        }
+
+        @keyframes floatOrb {
+            0% {
+                transform: translate(0, 0) scale(1);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: translate(var(--move-x, 100px), var(--move-y, -100px)) scale(1.2);
+                opacity: 0.8;
+            }
+
+            80% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translate(var(--move-x-end, 200px), var(--move-y-end, -200px)) scale(1);
+                opacity: 0;
+            }
+        }
     </style>
 </head>
 
@@ -138,6 +185,44 @@
 
     <!-- Hero / Envelope Interaction -->
     <section id="hero" class="hero">
+        <div class="orbs-container">
+            <div class="orb"
+                style="width: 20px; height: 20px; top: 20%; left: 10%; --move-x: 100px; --move-y: -150px; --move-x-end: 50px; --move-y-end: -250px; animation-delay: 0s;">
+            </div>
+            <div class="orb"
+                style="width: 15px; height: 15px; top: 70%; left: 80%; --move-x: -120px; --move-y: -100px; --move-x-end: -200px; --move-y-end: -150px; animation-delay: 2s;">
+            </div>
+            <div class="orb"
+                style="width: 25px; height: 25px; top: 40%; left: 50%; --move-x: 150px; --move-y: 120px; --move-x-end: 250px; --move-y-end: 200px; animation-delay: 5s;">
+            </div>
+            <div class="orb"
+                style="width: 18px; height: 18px; top: 10%; left: 90%; --move-x: -200px; --move-y: 150px; --move-x-end: -300px; --move-y-end: 300px; animation-delay: 3s;">
+            </div>
+            <div class="orb"
+                style="width: 22px; height: 22px; top: 80%; left: 20%; --move-x: 130px; --move-y: -180px; --move-x-end: 250px; --move-y-end: -300px; animation-delay: 7s;">
+            </div>
+            <div class="orb"
+                style="width: 15px; height: 15px; top: 30%; left: 70%; --move-x: -150px; --move-y: 150px; --move-x-end: -250px; --move-y-end: 250px; animation-delay: 4s;">
+            </div>
+            <div class="orb"
+                style="width: 18px; height: 18px; top: 10%; left: 90%; --move-x: -200px; --move-y: 150px; --move-x-end: -300px; --move-y-end: 300px; animation-delay: 3s;">
+            </div>
+            <div class="orb"
+                style="width: 22px; height: 22px; top: 80%; left: 20%; --move-x: 130px; --move-y: -180px; --move-x-end: 250px; --move-y-end: -300px; animation-delay: 7s;">
+            </div>
+            <div class="orb"
+                style="width: 15px; height: 15px; top: 30%; left: 70%; --move-x: -150px; --move-y: 150px; --move-x-end: -250px; --move-y-end: 250px; animation-delay: 4s;">
+            </div>
+            <div class="orb"
+                style="width: 18px; height: 18px; top: 10%; left: 90%; --move-x: -200px; --move-y: 150px; --move-x-end: -300px; --move-y-end: 300px; animation-delay: 3s;">
+            </div>
+            <div class="orb"
+                style="width: 22px; height: 22px; top: 80%; left: 20%; --move-x: 130px; --move-y: -180px; --move-x-end: 250px; --move-y-end: -300px; animation-delay: 7s;">
+            </div>
+            <div class="orb"
+                style="width: 15px; height: 15px; top: 30%; left: 70%; --move-x: -150px; --move-y: 150px; --move-x-end: -250px; --move-y-end: 250px; animation-delay: 4s;">
+            </div>
+        </div>
         <div class="hero-content">
             <div class="envelope-container" id="envelope">
                 <img src="images/green_envelope.webp?v=1.0" alt="Wedding Envelope" class="envelope-image">
