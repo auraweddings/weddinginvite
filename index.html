@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; script-src 'self' 'unsafe-inline' https://maps.googleapis.com https://www.google.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://maps.gstatic.com https://maps.googleapis.com https://www.google.com; frame-src https://www.google.com https://calendar.google.com; connect-src 'self' https://maps.googleapis.com;">
     <meta name="description"
         content="You are cordially invited to celebrate the marriage of Paul and Fakiha. Join us for our wedding ceremony on March 29th, 2026.">
     <title>Wedding Invitation</title>
@@ -152,7 +154,7 @@
             </div>
             <div class="scroll-hint fade-up delay-6">
                 <p>Ceremony Details</p>
-                <a href="#countdown" class="scroll-arrow">
+                <a href="#countdown" class="scroll-arrow" aria-label="Scroll to Ceremony Details">
                     <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <path d="M7 13l5 5 5-5M7 6l5 5 5-5" />
@@ -200,7 +202,8 @@
                     <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d26566.79329089121!2d73.06694817591631!3d33.5333375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x38dfed37fc5125f9%3A0x9bcc8ececa8e0b19!2sDiva%20Restaurant!5e1!3m2!1sen!2sus!4v1770885007426!5m2!1sen!2sus"
                         width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"></iframe><br>
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Google Maps - Wedding Venue Location"></iframe><br>
                     <a href="https://maps.app.goo.gl/t2QKUoxKWDjkFvev8" target="_blank" class="map-link">View Map</a>
                 </div>
             </div>
