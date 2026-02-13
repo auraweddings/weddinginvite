@@ -322,6 +322,8 @@ section {
     position: relative;
     overflow: hidden;
     color: #fff;
+    background-color: #000;
+    /* Fallback for video glitches */
 }
 
 .video-container {

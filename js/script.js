@@ -8,14 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const envelope = document.getElementById('envelope');
     const mainContent = document.getElementById('main-content');
 
-    // --- Background Video Slow Down ---
-    const bgVideo = document.querySelector('.bg-video');
-    if (bgVideo) {
-        bgVideo.playbackRate = 0.5; // Slow down the video for a cinematic effect
-    }
 
     // --- Envelope Interaction ---
     envelope.addEventListener('click', () => {
+        const bgVideo = document.querySelector('.bg-video');
+        if (bgVideo) {
+            bgVideo.muted = true; // Ensure muted for autoplay policies
+            bgVideo.play().catch(e => console.log("Video autoplay restrictions applied"));
+        }
+
         // 1. Animate Envelope Opening
         envelope.classList.add('open');
 
@@ -30,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Trigger reflow to ensure transition happens
             void mainContent.offsetWidth;
             mainContent.classList.add('visible');
+
 
             // 4. Enable Scroll
             document.body.style.overflowY = 'auto';
