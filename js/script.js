@@ -55,29 +55,101 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // --- Countdown Timer ---
-    function updateTimer() {
+    // --- Countdown Timer with Count-up Animation ---
+    let timerInterval;
+
+    function getTimeRemaining() {
         const now = new Date().getTime();
         const distance = WEDDING_DATE - now;
-
         if (distance < 0) {
-            // Welding passed
+            return { total: distance, days: 0, hours: 0, minutes: 0, seconds: 0 };
+        }
+        return {
+            total: distance,
+            days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+            hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+            minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+            seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        };
+    }
+
+    function updateDisplay(t) {
+        document.getElementById('days').innerText = String(t.days).padStart(2, '0');
+        document.getElementById('hours').innerText = String(t.hours).padStart(2, '0');
+        document.getElementById('minutes').innerText = String(t.minutes).padStart(2, '0');
+        document.getElementById('seconds').innerText = String(t.seconds).padStart(2, '0');
+    }
+
+    function startCountdown() {
+        // Run immediately then interval
+        const t = getTimeRemaining();
+        if (t.total < 0) {
             document.getElementById('timer').innerHTML = "<p>Happily Married!</p>";
             return;
         }
-
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-        document.getElementById('days').innerText = String(days).padStart(2, '0');
-        document.getElementById('hours').innerText = String(hours).padStart(2, '0');
-        document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
-        document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        updateDisplay(t);
+        timerInterval = setInterval(() => {
+            const t = getTimeRemaining();
+            if (t.total < 0) {
+                clearInterval(timerInterval);
+                document.getElementById('timer').innerHTML = "<p>Happily Married!</p>";
+            } else {
+                updateDisplay(t);
+            }
+        }, 1000);
     }
 
-    setInterval(updateTimer, 1000);
-    updateTimer(); // Initial call
+    function animateCountUp() {
+        const target = getTimeRemaining();
+        if (target.total < 0) {
+            startCountdown();
+            return;
+        }
+
+        const duration = 3000; // Slower: 3 seconds
+        const frameRate = 30;
+        const totalFrames = (duration / 1000) * frameRate;
+        let frame = 0;
+
+        const interval = setInterval(() => {
+            frame++;
+            const progress = frame / totalFrames; // 0 to 1
+
+            // Simple ease-out
+            const ease = 1 - Math.pow(1 - progress, 3);
+
+            const current = {
+                days: Math.floor(target.days * ease),
+                hours: Math.floor(target.hours * ease),
+                minutes: Math.floor(target.minutes * ease),
+                seconds: Math.floor(target.seconds * ease)
+            };
+
+            updateDisplay(current);
+
+            if (frame >= totalFrames) {
+                clearInterval(interval);
+                startCountdown(); // Switch to real timer
+            }
+        }, 1000 / frameRate);
+    }
+
+    // Observe Countdown Section
+    const countdownSection = document.getElementById('countdown');
+    const countdownObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                setTimeout(() => {
+                    animateCountUp();
+                }, 500);
+                countdownObserver.unobserve(entry.target); // Run once
+            }
+        });
+    }, { threshold: 0.5 });
+
+    if (countdownSection) {
+        countdownObserver.observe(countdownSection);
+    }
 
     // --- Save the Date Button ---
     document.getElementById('save-date-btn').addEventListener('click', () => {

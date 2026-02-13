@@ -52,19 +52,31 @@ h3 {
     color: var(--secondary-color);
 }
 
+.couple-names {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
 .couple-names h1 {
     font-family: var(--font-script);
-    font-size: 4rem;
+    font-size: 5rem;
+    /* Slightly larger on desktop */
     color: var(--secondary-color);
-    line-height: 1.2;
+    line-height: 1;
+    margin: 0;
 }
 
 .couple-names .amp {
-    display: block;
+    display: inline-block;
     font-family: var(--font-heading);
-    font-size: 2rem;
+    font-size: 3rem;
     color: var(--accent-color);
-    margin: 0.5rem 0;
+    margin: 0;
+    transform: translateY(-0.5rem);
+    /* Align visually */
 }
 
 /* Hero Section */
@@ -85,7 +97,10 @@ h3 {
     top: 0;
     left: 0;
     z-index: 1000;
-    background: radial-gradient(circle, #fffdf5 0%, #f0e6d2 100%);
+    /* More interesting background: Soft cream with subtle gold/green hints and texture */
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+        url('../video_background.png') center/cover no-repeat;
     transition: opacity 1s ease-out, visibility 1s ease-out;
 }
 
@@ -118,12 +133,37 @@ h3 {
     }
 }
 
+/* Envelope / Hero Image */
+.envelope-container {
+    position: relative;
+    cursor: pointer;
+    animation: float 6s ease-in-out infinite;
+    width: 80vmin;
+    max-width: 600px;
+    margin: 0 auto;
+    z-index: 10;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
 .envelope-image {
     width: 100%;
     height: auto;
     display: block;
     filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.15));
     transition: transform 0.4s ease;
+    border-radius: 12px;
+    /* Softly rounded corners */
 }
 
 .envelope-container:hover .envelope-image {
@@ -337,21 +377,52 @@ section {
 
 /* Details */
 .detail-card {
-    background: rgba(255, 255, 255, 0.8);
-    padding: 3rem;
-    border: 1px solid var(--accent-color);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    background: rgba(163, 126, 44, 0.08);
+    /* Sophisticated gold translucent */
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(163, 126, 44, 0.3);
+    border-radius: 20px;
+    padding: 4rem 3rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 2;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
 }
 
-.detail-card h2 {
-    font-size: 2rem;
-    color: var(--secondary-color);
-    margin-bottom: 1rem;
+.detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
 }
 
-.detail-card p {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+/* Specific background for Ceremony Details */
+#details {
+    background-image: url('../white_floral_background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+    padding: 120px 20px;
+}
+
+/* Specific background for Virtual Attendance */
+#virtual-attendance {
+    background-image: url('../gold_floral_background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    position: relative;
+    padding: 120px 20px;
+}
+
+/* Ensure container content is above overlays */
+#details .container,
+#virtual-attendance .container {
+    position: relative;
+    z-index: 2;
 }
 
 .divider {
@@ -504,8 +575,19 @@ section {
         padding: 40px 20px;
     }
 
+    .couple-names {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
     .couple-names h1 {
         font-size: 2.5rem;
+    }
+
+    .couple-names .amp {
+        font-size: 2rem;
+        transform: none;
+        margin: 0.5rem 0;
     }
 
     .countdown {
@@ -534,6 +616,11 @@ section {
         padding: 1.5rem;
     }
 
+    .detail-card {
+        padding: 2.5rem 1.5rem;
+        border-radius: 15px;
+    }
+
     .detail-card h2 {
         font-size: 1.75rem;
     }
@@ -541,4 +628,69 @@ section {
     .detail-card iframe {
         height: 250px;
     }
+
+    /* Fix potential mobile parallax issues - optional, but safer */
+    #details,
+    #virtual-attendance {
+        background-attachment: scroll;
+    }
+}
+
+/* Virtual Attendance Section Specifics */
+#virtual-attendance .detail-card {
+    color: #ffffff;
+    /* White text for contrast on gold background */
+}
+
+#virtual-attendance .detail-card h2 {
+    color: #ffffff;
+}
+
+#virtual-attendance .detail-card p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+#virtual-attendance .divider {
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Ceremony Details Section Specifics */
+#details .detail-card {
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    /* White border */
+    color: #ffffff;
+    /* White text */
+}
+
+#details .detail-card h2,
+#details .detail-card h3,
+#details .detail-card p,
+#details .detail-card .location-name,
+#details .detail-card .location-address,
+#details .detail-card .date,
+#details .detail-card .time,
+#details .map-link {
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+#details .divider {
+    background: linear-gradient(90deg, transparent, #ffffff, transparent);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.virtual-guest-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.virtual-guest-list li {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: #ffffff;
+    /* White text */
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
 }
