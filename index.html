@@ -7,10 +7,104 @@
     <title>Wedding Invitation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
+
+    <!-- Preload fonts to avoid flash of unstyled text -->
+    <link rel="preload"
         href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css?v=1.0">
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+            rel="stylesheet">
+    </noscript>
+
+    <!-- Async CSS loading for non-critical styles -->
+    <link rel="preload" href="css/style.css?v=1.0" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="css/style.css?v=1.0">
+    </noscript>
+
+    <!-- Critical CSS: Minimal styles to render the Hero section immediately -->
+    <style>
+        :root {
+            --primary-color: #ffffff;
+            --accent-color: #a37e2c;
+            --secondary-color: #006039;
+            --text-color: #2C2C2C;
+            --font-heading: 'Playfair Display', serif;
+            --font-script: 'Great Vibes', cursive;
+            --font-body: 'Montserrat', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: var(--primary-color);
+            overflow-x: hidden;
+            overflow-y: hidden;
+            line-height: 1.6;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #hero {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            background: linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+                url('images/video_background.webp?v=1.0') center/cover no-repeat;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .envelope-container {
+            position: relative;
+            cursor: pointer;
+            animation: float 6s ease-in-out infinite;
+            width: 80vmin;
+            max-width: 600px;
+            margin: 0 auto;
+            z-index: 10;
+        }
+
+        .envelope-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.15));
+            border-radius: 12px;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -138,7 +232,7 @@
 
     </main>
 
-    <script src="js/script.js?v=1.0"></script>
+    <script src="js/script.js?v=1.0" defer></script>
 </body>
 
 </html>
