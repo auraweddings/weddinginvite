@@ -1,15 +1,3 @@
-html,
-body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: transparent;
-    background-color: #000;
-    /* Fixes browser chrome color issues */
-}
-
 :root {
     --primary-color: #ffffff;
     /* White */
@@ -89,7 +77,6 @@ h3 {
 
 #hero {
     height: 100vh;
-    height: 100dvh;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -98,9 +85,8 @@ h3 {
     top: 0;
     left: 0;
     z-index: 1000;
-    background: #ffffff;
-    /* Use solid color to prevent background-render lag */
-    transition: opacity 0.8s ease-out, visibility 0.8s ease-out;
+    background: radial-gradient(circle, #fffdf5 0%, #f0e6d2 100%);
+    transition: opacity 1s ease-out, visibility 1s ease-out;
 }
 
 #hero.fade-out {
@@ -295,27 +281,27 @@ section {
 }
 
 .delay-1 {
-    transition-delay: 0.2s;
-}
-
-.delay-2 {
-    transition-delay: 0.4s;
-}
-
-.delay-3 {
-    transition-delay: 0.6s;
-}
-
-.delay-4 {
     transition-delay: 0.8s;
 }
 
+.delay-2 {
+    transition-delay: 1.2s;
+}
+
+.delay-3 {
+    transition-delay: 1.6s;
+}
+
+.delay-4 {
+    transition-delay: 2.0s;
+}
+
 .delay-5 {
-    transition-delay: 1.0s;
+    transition-delay: 2.4s;
 }
 
 .delay-6 {
-    transition-delay: 1.2s;
+    transition-delay: 2.8s;
 }
 
 .video-section {
@@ -492,17 +478,9 @@ section {
 
 /* Timer */
 #countdown {
-    background: url('../green_floral_background.png') center/cover no-repeat;
-    background-attachment: fixed;
+    background: url('../green_floral_background.png') center/cover no-repeat fixed;
     position: relative;
     padding: 100px 20px;
-}
-
-/* Fix for mobile browsers where fixed background is buggy */
-@media (max-width: 1024px) {
-    #countdown {
-        background-attachment: scroll;
-    }
 }
 
 #countdown::before {
@@ -602,26 +580,27 @@ section {
 @media (max-width: 768px) {
     #hero {
         padding: 20px;
-        height: 100dvh;
     }
 
     .envelope-container {
-        --env-width: 85vw;
-        --env-height: 56vw;
-        max-width: 350px;
-        height: var(--env-height);
+        --env-width: 90vw;
+        --env-height: 60vw;
+        max-width: 400px;
+        max-height: 260px;
+    }
+
+    .card-inside {
+        font-size: 5vw;
+        padding: 10px;
     }
 
     #couple {
         min-height: 100vh;
-        min-height: 100dvh;
-        padding: 60px 20px;
-        background-color: #000;
-        /* Matches video overlay to hide status bar gaps */
+        padding: 40px 20px;
     }
 
     .couple-names h1 {
-        font-size: 2.2rem;
+        font-size: 2.5rem;
     }
 
     .countdown {
