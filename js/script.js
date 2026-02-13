@@ -8,6 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const envelope = document.getElementById('envelope');
     const mainContent = document.getElementById('main-content');
 
+    // --- Check if invite was already opened via Cookie ---
+    const inviteOpened = document.cookie.split('; ').find(row => row.startsWith('inviteOpened='));
+
+    if (inviteOpened) {
+        hero.style.display = 'none';
+        mainContent.classList.remove('hidden');
+        mainContent.classList.add('visible');
+        document.body.style.overflowY = 'auto';
+        window.scrollTo(0, 0);
+    }
+
     // --- Background Video Slow Down ---
     const bgVideo = document.querySelector('.bg-video');
     if (bgVideo) {
@@ -33,6 +44,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // 4. Enable Scroll
             document.body.style.overflowY = 'auto';
+
+            // 5. Remember for next time via Cookie (expires in 1 year)
+            const expiryDate = new Date();
+            expiryDate.setFullYear(expiryDate.getFullYear() + 1);
+            document.cookie = `inviteOpened=true; expires=${expiryDate.toUTCString()}; path=/; SameSite=Lax`;
 
         }, 1200); // Wait 1.2s for envelope open + card slide
     });
@@ -153,10 +169,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Save the Date Button ---
     document.getElementById('save-date-btn').addEventListener('click', () => {
-        const title = "Wedding%3A%20%5BYour%20Name%5D%20%26%20Fakiha";
-        const dates = "20261212T130000Z/20261212T170000Z"; // UTC time (adjust as needed)
+        const title = "Wedding%3A%20Paul%20%26%20Fakiha";
+        const dates = "20260329T130000/20260329T170000";
         const details = "Join%20us%20in%20celebrating%20our%20wedding%21";
-        const location = "Lahore%2C%20Pakistan";
+        const location = "Diva%20Restaurant%2C%20Eye%20View%20Park%2C%20Phase%207%20Bahria%20Town%2C%20Rawalpindi";
 
         const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;
 

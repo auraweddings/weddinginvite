@@ -401,7 +401,6 @@ section {
     background-image: url('../white_floral_background.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-position: center;
     position: relative;
     padding: 120px 20px;
@@ -412,7 +411,6 @@ section {
     background-image: url('../gold_floral_background.png');
     background-size: cover;
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-position: center;
     position: relative;
     padding: 120px 20px;
@@ -444,7 +442,7 @@ section {
 
 /* Timer */
 #countdown {
-    background: url('../green_floral_background.png') center/cover no-repeat fixed;
+    background: url('../green_floral_background.png') center/cover no-repeat;
     position: relative;
     padding: 100px 20px;
 }
@@ -519,20 +517,61 @@ section {
 
 /* Button */
 .btn-primary {
-    background: var(--secondary-color);
+    background: rgba(163, 126, 44, 0.15);
+    /* Match countdown gold translucent */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     color: #fff;
-    border: none;
-    padding: 1rem 2rem;
+    border: 2px solid rgba(163, 126, 44, 0.4);
+    border-radius: 12px;
+    padding: 1.2rem 2.5rem;
     font-family: var(--font-body);
-    font-size: 1rem;
-    letter-spacing: 1px;
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
     margin-top: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:hover {
-    background: #0a3a23;
+    background: rgba(163, 126, 44, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    border-color: rgba(163, 126, 44, 0.6);
+}
+
+/* RSVP Section Styles */
+#rsvp {
+    background: url('../green_floral_background.png') center/cover no-repeat;
+    position: relative;
+    padding: 120px 20px;
+    text-align: center;
+}
+
+#rsvp::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 40, 24, 0.7);
+    /* Deep Rolex Green Overlay */
+    z-index: 1;
+}
+
+#rsvp .container {
+    position: relative;
+    z-index: 2;
+}
+
+#rsvp p {
+    color: #fff;
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
 }
 
 /* Media Queries */
@@ -627,12 +666,6 @@ section {
 
     .detail-card iframe {
         height: 250px;
-    }
-
-    /* Fix potential mobile parallax issues - optional, but safer */
-    #details,
-    #virtual-attendance {
-        background-attachment: scroll;
     }
 }
 
