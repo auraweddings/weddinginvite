@@ -187,6 +187,7 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.addEventListener('click', handleSaveDate);
     });
 
+    /*
     // --- Share Photos Button ---
     const SHARE_PHOTOS_DATE = new Date('March 29, 2026 00:00:00').getTime();
     const sharePhotosBtn = document.getElementById('share-photos-btn');
@@ -201,5 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
             window.open('https://auraweddings.github.io/photosharing/', '_blank');
         });
     }
+    */
 
 });
