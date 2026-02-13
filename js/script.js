@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Save the Date Button ---
-    document.getElementById('save-date-btn').addEventListener('click', () => {
+    const handleSaveDate = () => {
         const title = "Wedding%3A%20Paul%20%26%20Fakiha";
         const dates = "20260329T130000/20260329T170000";
         const details = "Join%20us%20in%20celebrating%20our%20wedding%21";
@@ -177,6 +177,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${title}&dates=${dates}&details=${details}&location=${location}`;
 
         window.open(calendarUrl, '_blank');
+    };
+
+    document.querySelectorAll('.save-date-btn').forEach(btn => {
+        btn.addEventListener('click', handleSaveDate);
     });
 
 });
